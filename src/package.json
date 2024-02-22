@@ -1,5 +1,5 @@
 {
-  "name": "@nativescript/ui-charts",
+  "name": "@imakeltd/ui-charts",
   "version": "0.2.5",
   "description": "Nativescript wrapper for Highcharts iOS and Android SDKs",
   "main": "ui-charts",
