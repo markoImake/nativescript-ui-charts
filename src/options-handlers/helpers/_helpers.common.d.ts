@@ -53,6 +53,7 @@ export declare const typesMap: {
     HIAccessibility: (options: any) => any;
     HIAlignObject: (options: any) => any;
     HIAnnotations: (options: any) => any;
+    HIAnnotationMockPointOptionsObject: (options: any) => any;
     HIAnnotationsOptions: (options: any) => any;
     HIAnimationOptionsObject: (options: any) => any;
     HIButtonOptions: (options: any) => any;
@@ -79,7 +80,6 @@ export declare const typesMap: {
     HIPlotOptions: (options: any) => any;
     HIPlotBands: (options: any) => any;
     HIPlotLines: (options: any) => any;
-    HIResetZoomButton: (options: any) => any;
     HIScrollablePlotArea: (options: any) => any;
     HISeries: (options: any) => any;
     HIShapes: (options: any) => any;
@@ -94,6 +94,7 @@ export declare const typesMap: {
     HIYAxis: (options: any) => java.util.ArrayList<any>;
     HIZAxis: (options: any) => java.util.ArrayList<any>;
     HIZones: (options: any) => java.util.ArrayList<any>;
+    HIZooming: (options: any) => any;
     HIFrame: (options: any) => any;
     HIBack: (options: any) => any;
     HIBottom: (options: any) => any;

@@ -82,6 +82,60 @@ export class UIChartsView extends UIChartsViewBase {
     }
   }
 
+  zoomIn() {
+      const nativeview = this.nativeView;
+      if (nativeview) {
+          const opts = nativeview.options;
+          if (opts) {
+              const xaxis = opts.xAxis.objectAtIndex(0);
+              let min = xaxis.min;
+              let max = xaxis.max;
+              if (!min && this.options?.options?.time_min) {
+                  min = this.options.options.time_min;
+              }
+              if (!max && this.options?.options?.time_max) {
+                  max = this.options.options.time_max;
+              }
+              const range = max - min;
+              const offset = range/4;
+              if (xaxis && range > 900000) {
+                  const newMin = min + offset;
+                  const newMax = max - offset;
+                  xaxis.setExtremesNewMax(newMin, newMax);
+                  xaxis.min = newMin;
+                  xaxis.max = newMax;
+              }
+          }
+      }
+  }
+  
+  zoomOut() {
+      const nativeview = this.nativeView;
+      if (nativeview) {
+          const opts = nativeview.options;
+          if (opts) {
+              const xaxis = opts.xAxis.objectAtIndex(0);
+              let min = xaxis.min;
+              let max = xaxis.max;
+              if (!min && this.options?.options?.time_min) {
+                  min = this.options.options.time_min;
+              }
+              if (!max && this.options?.options?.time_max) {
+                  max = this.options.options.time_max;
+              }
+              const range = max - min;
+              const offset = range/4;
+              if (xaxis) {
+                  const newMin = Math.max(min - offset, this.options?.options?.time_min);
+                  const newMax = Math.min(max + offset, this.options?.options?.time_max);
+                  xaxis.setExtremesNewMax(newMin, newMax);
+                  xaxis.min = newMin;
+                  xaxis.max = newMax;
+              }
+          }
+      }
+  }
+
   public enableAnnotationsModule() {
     if (this.nativeView) {
       this.nativeView.plugins = ['annotations'];

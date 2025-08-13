@@ -1,4 +1,5 @@
 import { accessibilityHandler } from "../accessibility/accessibility-handler";
+import { annotationMockPointOptionsObjectHandler } from '../annotationMockPointOptionsObject/annotationMockPointOptionsObject-handler';
 import { alignObjectHandler } from "../alignObject/alignObject-handler";
 import { chartHandler } from "../chart/chart-handler";
 import { creditsHandler } from "../credits/credits-handler";
@@ -15,7 +16,7 @@ import { plotOptionsHandler } from "../plotOptions/plotOptions-handler";
 import { plotBandsHandler } from "../plotBands/plotBands-handler";
 import { plotLinesHandler } from "../plotLines/plotLines-handler";
 import { pointHandler } from "../point/point-handler";
-import { resetZoomButtonHandler } from "../resetZoomButton/resetZoomButton-handler";
+import { zoomingHandler } from "../zooming/zooming-handler";
 import { scrollablePlotAreaHandler } from "../scrollablePlotArea/scrollablePlotArea-handler";
 import { seriesHandler } from "../series/series-handler";
 import { stackLabelsHandler } from "../stackLabels/stackLabels-handler";
@@ -103,6 +104,8 @@ import { wordcloudHandler } from '../series/wordcloud/wordcloud-handler';
 import { xrangeHandler } from '../series/xrange/xrange-handler';
 
 
+
+
 const seriesHandlers = {
   'HIArea': (options) => areaHandler(options),
   'HIArearange': (options) => arearangeHandler(options),
@@ -161,6 +164,7 @@ export const typesMap = {
   'HIAccessibility': (options) => accessibilityHandler(options),
   'HIAlignObject': (options) => alignObjectHandler(options),
   'HIAnnotations': (options) => annotationsHandler(options),
+  "HIAnnotationMockPointOptionsObject": (options) => annotationMockPointOptionsObjectHandler(options),
   'HIAnnotationsOptions': (options) => annotationsOptionsHandler(options),
   'HIAnimationOptionsObject': (options) => animationOptionsObjectHandler(options),
   // 'HIBoost': (options) => boostHandler(options),
@@ -198,7 +202,7 @@ export const typesMap = {
   'HIPlotBands': (options) => plotBandsHandler(options),
   'HIPlotLines': (options) => plotLinesHandler(options),
   // 'HIResponsive': (options) => responsiveHandler(options),
-  'HIResetZoomButton': (options) => resetZoomButtonHandler(options),
+  // 'HIResetZoomButton': (options) => resetZoomButtonHandler(options),
   'HIScrollablePlotArea': (options) => scrollablePlotAreaHandler(options),
   'HISeries': (options) => seriesHandler(options),
   'HIShapes': (options) => shapesHandler(options),
@@ -213,6 +217,7 @@ export const typesMap = {
   'HIYAxis': (options) => yAxisHandler(options),
   'HIZAxis': (options) => zAxisHandler(options),
   'HIZones': (options) => zonesHandler(options),
+  'HIZooming': (options) => zoomingHandler(options),
 
   // Frame handlers
   'HIFrame': (options) => frameHandler(options),

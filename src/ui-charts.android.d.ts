@@ -18,5 +18,7 @@ export declare class UIChartsView extends UIChartsViewBase {
     updateOptions(opts: any): void;
     setLangOptions(opts: any): void;
     setExtremes(newMin: any, newMax: any, xAxisIndex?: number): void;
+    zoomIn(): void;
+    zoomOut(): void;
     enableAnnotationsModule(): void;
 }

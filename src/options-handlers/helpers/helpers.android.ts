@@ -127,9 +127,12 @@ export function optionsBuilder(schema, options, containerObject) {
     if ((<any>optionsKeys).includes(schemaKey)) {
       if (typeof typesMap[schema[schemaKey]] === 'function') {
         if (options[schemaKey] !== null && typeof options[schemaKey] !== 'undefined') {
-          containerObject['set' + schemaKey[0].toUpperCase() + schemaKey.slice(1)](
-            typesMap[schema[schemaKey]](options[schemaKey])
-          );
+          const setterMethodName = 'set' + schemaKey[0].toUpperCase() + schemaKey.slice(1);
+          if (typeof containerObject[setterMethodName] === 'function') {
+            containerObject[setterMethodName](
+              typesMap[schema[schemaKey]](options[schemaKey])
+            );
+          }
         }
       } else {
         console.log('Handler for', schemaKey, schema[schemaKey], 'not implemented');

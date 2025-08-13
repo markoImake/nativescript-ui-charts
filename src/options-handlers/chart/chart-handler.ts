@@ -38,7 +38,7 @@ export function chartHandler(chartOptions) {
     polar: 'number',
     reflow: 'number',
     renderTo: 'string',
-    resetZoomButton: 'HIResetZoomButton',
+    zooming: 'HIZooming',
     scrollablePlotArea: 'HIScrollablePlotArea',
     selectionMarkerFill: 'HIColor',
     shadow: 'HICSSObject',

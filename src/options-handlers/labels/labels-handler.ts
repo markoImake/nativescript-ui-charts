@@ -20,7 +20,7 @@ export function labelsHandler(labelsOptions) {
     formatter: 'HIFunction',
     overflow: 'string',
     padding: 'number',
-    point: 'HIPoint',
+    point: 'HIAnnotationMockPointOptionsObject',
     position3d: 'string',
     reserveSpace: 'number',
     rotation: 'number',

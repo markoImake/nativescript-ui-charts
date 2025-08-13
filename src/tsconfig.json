@@ -5,7 +5,7 @@
       "module": "esnext",
       "declaration": true,
       "noImplicitAny": false,
-      "noImplicitUseStrict": true,
+      // "noImplicitUseStrict": true,
       "experimentalDecorators": true,
       "diagnostics": true,
       "moduleResolution": "node",

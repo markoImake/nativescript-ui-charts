@@ -116,6 +116,65 @@ export class UIChartsView extends UIChartsViewBase {
     }
   }
 
+  zoomIn() {
+      const nativeview = this.nativeView;
+      if (nativeview) {
+          const opts = nativeview.getOptions();
+          if (opts) {
+              const xaxisArr = opts.getXAxis();
+              const xaxis = xaxisArr.get(0);
+              let min = parseFloat(xaxis.getMin());
+              let max = parseFloat(xaxis.getMax());
+              if (!min && this.options.options && this.options.options.time_min) {
+                  min = this.options.options.time_min;
+              }
+              if (!max && this.options.options && this.options.options.time_max) {
+                  max = this.options.options.time_max;
+              }
+              const range = max - min;
+              const offset = range/4;
+              if (xaxis && range > 900000) {
+                  const newMin = min + offset;
+                  const newMax = max - offset;
+                  xaxis.setMin(new java.lang.Long(newMin));
+                  xaxis.setMax(new java.lang.Long(newMax));
+                  nativeview.zoomOut();
+                  nativeview.update(opts);
+              }
+          }
+      }
+
+  }
+  
+  zoomOut() {
+      const nativeview = this.nativeView;
+      if (nativeview) {
+          const opts = nativeview.getOptions();
+          if (opts) {
+              const xaxisArr = opts.getXAxis();
+              const xaxis = xaxisArr.get(0);
+              let min = parseFloat(xaxis.getMin());
+              let max = parseFloat(xaxis.getMax());
+              if (!min && this.options.options && this.options.options.time_min) {
+                  min = this.options.options.time_min;
+              }
+              if (!max && this.options.options && this.options.options.time_max) {
+                  max = this.options.options.time_max;
+              }
+              const range = max - min;
+              const offset = range/4;
+              if (xaxis) {
+                  const newMin = min - offset;
+                  const newMax = max + offset;
+                  xaxis.setMin(new java.lang.Long(Math.max(this.options?.options?.time_min, newMin)));
+                  xaxis.setMax(new java.lang.Long(Math.min(newMax, this.options.options.time_max)));
+                  nativeview.zoomOut();
+                  nativeview.update(opts);
+              }
+          }
+      }
+  }
+
   public enableAnnotationsModule() {
     if (this.nativeView) {
       const nativeArray = new java.util.ArrayList<any>();
